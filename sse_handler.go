@@ -44,7 +44,7 @@ func makeNewMessageFlusher(writer http.ResponseWriter) (*MessageFlusher, bool) {
 	if !ok {
 		return nil, ok
 	}
-	return MessageFlusher{flusher: flusher, writer: writer}, true
+	return &MessageFlusher{flusher: flusher, writer: writer}, true
 }
 
 // HandleSSE accepts a function to handle message
