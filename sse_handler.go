@@ -26,15 +26,16 @@ func (messageFlusher *MessageFlusher) SendString(msgString string) {
 func (messageFlusher *MessageFlusher) Send(message *EventMessage){
 	fmt.Fprintln(messageFlusher.writer, ": ")
 	if message.Id > -1 {
-		fmt.Fprintln(messageFlusher.writer, "id: %d ", message.Id)
+		fmt.Fprintf(messageFlusher.writer, "id: %v\n", message.Id)
 	}
 	if len(message.Event) > 0 {
-		fmt.Fprintln(messageFlusher.writer, "event: %s ", message.Data)
+		fmt.Fprintf(messageFlusher.writer, "event: %v\n", message.Event)
 	}
 	if len(message.Data) > 0 {
-		fmt.Fprintln(messageFlusher.writer, "data: %s ", message.Data)
+		fmt.Fprintf(messageFlusher.writer, "data: %v\n ", message.Data)
 	}
-	fmt.Fprintln(messageFlusher.writer, "\n")
+	fmt.Fprintf(messageFlusher.writer, "\n\n")
+
 	messageFlusher.flusher.Flush()
 }
 
