@@ -1,11 +1,14 @@
 # sse_handler
 
-# Install 
+A wrapper for server sent events  
+
+
+## Install 
 
 go get github.com/asafg6/sse_handler
 
 
-# Exapmle
+## Exapmle
 
 ```go
 import (
